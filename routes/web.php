@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/', 'welcome');
+//Route::get('/={name}', function ($name) {
+//    return view('welcome', ['name' => $name]);
+//});
 
-Route::get('/', function () {
-    return view('Hello');
-});
+//Route::get('/about', function (){
+//   return view('about');
+//});
+
+Route::view('/about', 'about');
+Route::view('/contact', 'contact');
+Route::get('/user/{name}', [UserController::class, 'show']);
+
+Route::redirect('/{anything}', '/');
+
