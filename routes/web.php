@@ -24,7 +24,10 @@ Route::view('/', 'welcome');
 
 Route::view('/about', 'about');
 Route::view('/contact', 'contact');
-Route::get('/user/{name}', [UserController::class, 'show']);
+Route::get('/user', [UserController::class, 'show']);
 
-Route::redirect('/{anything}', '/');
+//Route::redirect('/{anything}', '/');
 
+Route::view('users', 'users');
+
+Route::post('users', [UserController::class, 'getData']);

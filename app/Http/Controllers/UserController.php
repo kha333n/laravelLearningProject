@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    function show($name)
+    function show()
     {
-        return ('welcome ' . $name);
+        return view('users');
+    }
+
+    function getData(Request $request)
+    {
+        $data = $request->all();
+        return $data;
     }
 }

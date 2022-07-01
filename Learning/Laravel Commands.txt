@@ -1,0 +1,21 @@
+----Install laravel globally----
+
+composer global require laravel/install
+
+----Create new laravel app----
+
+laravel new [project name]
+
+----Run Laravel App----
+
+php artisan serve
+
+----Create Controller----
+
+php artisan make:controller [controller name]
+
+----Creating Header----
+
+php artisan make:component [component name]
+
+----Creating Model----
