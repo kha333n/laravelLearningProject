@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Prevalent\Prevalent;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,20 @@ Route::view('/', 'welcome');
 //   return view('about');
 //});
 
-Route::view('/about', 'about');
-Route::view('/contact', 'contact');
-Route::get('/user', [UserController::class, 'show']);
+Route::view('/' . Prevalent::$about, Prevalent::$about);
+Route::get('/' . Prevalent::$user, [UserController::class, 'show']);
 
 //Route::redirect('/{anything}', '/');
 
-Route::view('users', 'users');
 
-Route::post('users', [UserController::class, 'getData']);
+Route::post(Prevalent::$users, [UserController::class, 'getData']);
+
+Route::view(Prevalent::$noAccess, Prevalent::$noAccess);
+
+Route::view('users', 'users')->middleware('protectedPage');
+Route::view('/' . Prevalent::$contact, Prevalent::$contact);
+
+//Route::group(['middleware'=>['protectedPage']], function (){
+//    Route::view('users', 'users');
+//    Route::view('/contact', 'contact');
+//});
