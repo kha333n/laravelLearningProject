@@ -18,9 +18,4 @@ php artisan make:controller [controller name]
 
 php artisan make:component [component name]
 
-----Creating Middleware----
-
-php artisan make:middleware [middleware name]
-
-----xyz----
-
+----Creating Model----
