@@ -23,14 +23,52 @@ Route::view('/', 'welcome')->middleware('protectedPage');
 //});
 
 Route::view('/about', 'about');
-Route::view('/login', 'login');
+
+
+Route::get('/profile', function (){
+    if (session('username')){
+        return view('profile');
+    }
+    return redirect('login');
+});
+
+Route::get('/logout', function (){
+    if (session('username')){
+        session()->pull('username', null);
+        return redirect('login');
+    }
+    return view('login');
+});
+
+Route::get('/login', function (){
+    if (session('username')){
+        return redirect('profile');
+    }
+    return view('login');
+});
+
+
+Route::view('/store', 'storedata');
+
+
 Route::view('/contact', 'contact');
+
 Route::get('/user', [UserController::class, 'show']);
+
 Route::get('/login/get/submit', [\App\Http\Controllers\HttpMethodsTestController::class, 'getSubmit']);
+
 Route::post('/login/post/submit', [\App\Http\Controllers\HttpMethodsTestController::class, 'postSubmit']);
+
+Route::post('/login/submit', [\App\Http\Controllers\loginController::class, 'login']);
+
+Route::post('/storedata', [\App\Http\Controllers\StoreDataController::class, 'storeData']);
+
 Route::put('/login/put/submit', [\App\Http\Controllers\HttpMethodsTestController::class, 'putSubmit']);
+
 Route::delete('/login/delete/submit', [\App\Http\Controllers\HttpMethodsTestController::class, 'deleteSubmit']);
+
 Route::get('/dbconnect', [\App\Http\Controllers\CustomersControllerDb::class, 'getData']);
+
 Route::get('/callapi', [\App\Http\Controllers\ApiController::class, 'callApi']);
 
 //Route::redirect('/{anything}', '/');
@@ -46,4 +84,7 @@ Route::view('/noaccess', 'noaccess');   // redirect to noaccess page
 //});
 
 
+Route::view('upload', 'upload');
+
+Route::post('upload', [\App\Http\Controllers\UploadController::class, 'upload']);
 
