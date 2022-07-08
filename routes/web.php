@@ -67,7 +67,7 @@ Route::put('/login/put/submit', [\App\Http\Controllers\HttpMethodsTestController
 
 Route::delete('/login/delete/submit', [\App\Http\Controllers\HttpMethodsTestController::class, 'deleteSubmit']);
 
-Route::get('/dbconnect', [\App\Http\Controllers\CustomersControllerDb::class, 'getData']);
+Route::get('/customersList', [\App\Http\Controllers\CustomersControllerDb::class, 'getData']);
 
 Route::get('/callapi', [\App\Http\Controllers\ApiController::class, 'callApi']);
 
@@ -87,4 +87,12 @@ Route::view('/noaccess', 'noaccess');   // redirect to noaccess page
 Route::view('upload', 'upload');
 
 Route::post('upload', [\App\Http\Controllers\UploadController::class, 'upload']);
+
+Route::view('addCustomer', 'addCustomer');
+
+Route::post('addCustomer', [\App\Http\Controllers\AddCustomerController::class, 'addCustomer']);
+Route::post('editCustomer/{id}', [\App\Http\Controllers\AddCustomerController::class, 'editCustomer']);
+
+Route::get('deleteCustomer/{CustomerID}', [\App\Http\Controllers\CustomersControllerDb::class, 'deleteCustomer']);
+Route::get('editCustomer/{CustomerID}', [\App\Http\Controllers\CustomersControllerDb::class, 'editCustomer']);
 

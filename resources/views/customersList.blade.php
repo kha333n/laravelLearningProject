@@ -10,6 +10,7 @@
         <th>City</th>
         <th>Postal Code</th>
         <th>Country</th>
+        <th>Operations</th>
     </tr>
 
     @foreach($collection as $customer)
@@ -21,6 +22,8 @@
         <td>{{ $customer['City'] }}</td>
         <td>{{ $customer['PostalCode'] }}</td>
         <td>{{ $customer['Country'] }}</td>
+        <td><a href={{"deleteCustomer/" . $customer['CustomerID']}} >Delete</a> <br>
+            <a href={{ "editCustomer/" . $customer['CustomerID'] }}>Edit</a> </td>
     </tr>
     @endforeach
 </table>
