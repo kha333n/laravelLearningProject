@@ -18,4 +18,10 @@ php artisan make:controller [controller name]
 
 php artisan make:component [component name]
 
-----Creating Model----
+----Creating Migration----
+
+php artisan make:migration create_[table name]
+
+php artisan migrate
+
+
