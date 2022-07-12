@@ -1,0 +1,14 @@
+Creating JetStream Project
+
+laravel new [project_name] --jet
+
+install Node
+
+Then, you can install the dependencies of your project with the following command:
+npm install
+php artisan jetstream:install
+
+Then, you can run the following command to start the application:
+npm start
+
+
