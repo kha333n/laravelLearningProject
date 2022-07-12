@@ -26,6 +26,26 @@ php artisan migrate
 
 ----Reset Migration----
 
+/***************************************************************************
+
+NOTE::::   large_prefix Problem Solution
+
+/app/Providers/AppServiceProvider.php
+
+use Illuminate\Support\Facades\Schema;
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+
+
+************************************************************/
+
 php artisan migrate:reset
 
 ----Rollback Migration----
