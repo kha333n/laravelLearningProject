@@ -24,4 +24,20 @@ php artisan make:migration create_[table name]
 
 php artisan migrate
 
+----Reset Migration----
 
+php artisan migrate:reset
+
+----Rollback Migration----
+
+php artisan migrate:rollback
+
+php artisan migrate:rollback --step [x]
+
+----Refresh Migration----
+
+php artisan migrate:refresh
+
+----Single table Migration----
+
+php artisan migrate --path=/database/migration/[file name].php
