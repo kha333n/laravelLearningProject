@@ -9,4 +9,10 @@ class Customer extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    // Accessors
+    // function get[Name of the column]Attribute($value)
+    function getPostalCodeAttribute($value){
+        return "PO Box: ". $value;
+    }
 }
