@@ -15,4 +15,11 @@ class Customer extends Model
     function getPostalCodeAttribute($value){
         return "PO Box: ". $value;
     }
+
+    // Mutators
+    // function set[Name of the column]Attribute($value)
+    function setPostalCodeAttribute($value){
+        $this->attributes['PostalCode'] = "PO Box: ". $value;
+    }
+    
 }
