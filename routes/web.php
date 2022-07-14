@@ -96,3 +96,5 @@ Route::post('editCustomer/{id}', [\App\Http\Controllers\AddCustomerController::c
 Route::get('deleteCustomer/{CustomerID}', [\App\Http\Controllers\CustomersControllerDb::class, 'deleteCustomer']);
 Route::get('editCustomer/{CustomerID}', [\App\Http\Controllers\CustomersControllerDb::class, 'editCustomer']);
 
+
+Route::get('productsCategories', [\App\Http\Controllers\productCategoriesController::class, 'fetchData']);

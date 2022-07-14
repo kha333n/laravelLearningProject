@@ -21,5 +21,5 @@ class Customer extends Model
     function setPostalCodeAttribute($value){
         $this->attributes['PostalCode'] = "PO Box: ". $value;
     }
-    
+
 }
