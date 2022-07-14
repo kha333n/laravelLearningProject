@@ -98,3 +98,5 @@ Route::get('editCustomer/{CustomerID}', [\App\Http\Controllers\CustomersControll
 
 
 Route::get('productsCategories', [\App\Http\Controllers\productCategoriesController::class, 'fetchData']);
+
+Route::get('suppliers/{key:ShipperName}', [\App\Http\Controllers\ShippersController::class, 'getData']);
