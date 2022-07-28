@@ -8,5 +8,8 @@ pool:
 
 steps:
 - script: |
-    php -v
+    cd C:\WorkingDirectoryAZAgent\
+    git clone $(repo)
+    cd laravelLearningProject
+    php artisian serve
   displayName: 'Run a build script'
