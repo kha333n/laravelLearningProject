@@ -1,3 +1,11 @@
+trigger:
+- master
+
+pool:
+   vmImage: KHA333N
+
+steps:
+  - 
 - task: CmdLine@2
   inputs:
     script: 'php --v'
