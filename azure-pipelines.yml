@@ -8,8 +8,10 @@ pool:
 
 steps:
 - script: |
-    cd C:\WorkingDirectoryAZAgent\
-    git clone $(repo)
-    cd laravelLearningProject
-    php artisian serve
-  displayName: 'Run a build script'
+    cd C:\Users\Usman Khan\IdeaProjects\laravelLearningProject>
+    php artisan serve
+  displayName: 'Run a Start Stcript'
+
+- script: |
+    stat http://localhost:8000
+  displayName: 'Open Site'
