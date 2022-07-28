@@ -2,10 +2,11 @@ trigger:
 - master
 
 pool:
-   vmImage: KHA333N
+  name: kha333n
+  demands:
+   - agent.name -equals KHA333N 
 
 steps:
-  - 
-- task: CmdLine@2
-  inputs:
-    script: 'php --v'
+- script: |
+    php -v
+  displayName: 'Run a build script'
