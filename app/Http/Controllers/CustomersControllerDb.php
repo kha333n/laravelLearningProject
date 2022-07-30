@@ -17,7 +17,7 @@ class CustomersControllerDb extends Controller
 
     function deleteCustomer($CustomerID){
         $data = Customer::query()->where('CustomerID', $CustomerID)->delete();
-        return redirect('/dbconnect');
+        return redirect('/customersList');
 
     }
 

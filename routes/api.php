@@ -20,3 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('dummyapi', [\App\Http\Controllers\DummyApi::class, 'getData']);
 Route::get('customerslist/{id?}', [\App\Http\Controllers\CustomersListApi::class, 'getCustomers']);
+
+Route::post('add', [\App\Http\Controllers\CustomersListApi::class, 'addCustomer']);
+
+Route::put('update' , [\App\Http\Controllers\CustomersListApi::class, 'updateCustomer']);
+
+Route::delete('delete/{id}', [\App\Http\Controllers\CustomersListApi::class, 'deleteCustomer']);

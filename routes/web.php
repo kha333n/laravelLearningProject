@@ -18,7 +18,7 @@ use App\Http\Controllers\UserController;
 //Route::view('/', 'welcome')->middleware('protectedPage');
 Route::get('/', function () {
     DebugBar::info($GLOBALS);
-    return view('welcme');
+    return view('welcome');
 });
 
 //Route::get('/about', function (){
