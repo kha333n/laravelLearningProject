@@ -1,5 +1,7 @@
 <?php
 
+
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -13,10 +15,11 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'welcome')->middleware('protectedPage');
-//Route::get('/={name}', function ($name) {
-//    return view('welcome', ['name' => $name]);
-//});
+//Route::view('/', 'welcome')->middleware('protectedPage');
+Route::get('/', function () {
+    DebugBar::info($GLOBALS);
+    return view('welcme');
+});
 
 //Route::get('/about', function (){
 //   return view('about');
