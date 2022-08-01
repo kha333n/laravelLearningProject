@@ -28,3 +28,5 @@ Route::put('update' , [\App\Http\Controllers\CustomersListApi::class, 'updateCus
 Route::delete('delete/{id}', [\App\Http\Controllers\CustomersListApi::class, 'deleteCustomer']);
 
 Route::get('searchCustomer/{string}', [\App\Http\Controllers\CustomersListApi::class, 'searchCustomer']);
+
+Route::apiResource('customers', \App\Http\Controllers\CustomerController::class);
