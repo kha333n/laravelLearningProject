@@ -14,19 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:sanctum'], function(){
+    //All secure URL's
+
+    Route::get('dummyapi', [\App\Http\Controllers\DummyApi::class, 'getData']);
+    Route::get('customerslist/{id?}', [\App\Http\Controllers\CustomersListApi::class, 'getCustomers']);
+
+    Route::post('add', [\App\Http\Controllers\CustomersListApi::class, 'addCustomer']);
+
+    Route::put('update' , [\App\Http\Controllers\CustomersListApi::class, 'updateCustomer']);
+
+    Route::delete('delete/{id}', [\App\Http\Controllers\CustomersListApi::class, 'deleteCustomer']);
+
+    Route::get('searchCustomer/{string}', [\App\Http\Controllers\CustomersListApi::class, 'searchCustomer']);
+
+    Route::apiResource('customers', \App\Http\Controllers\CustomerController::class);
+
 });
 
-Route::get('dummyapi', [\App\Http\Controllers\DummyApi::class, 'getData']);
-Route::get('customerslist/{id?}', [\App\Http\Controllers\CustomersListApi::class, 'getCustomers']);
 
-Route::post('add', [\App\Http\Controllers\CustomersListApi::class, 'addCustomer']);
-
-Route::put('update' , [\App\Http\Controllers\CustomersListApi::class, 'updateCustomer']);
-
-Route::delete('delete/{id}', [\App\Http\Controllers\CustomersListApi::class, 'deleteCustomer']);
-
-Route::get('searchCustomer/{string}', [\App\Http\Controllers\CustomersListApi::class, 'searchCustomer']);
-
-Route::apiResource('customers', \App\Http\Controllers\CustomerController::class);
+Route::post('login', [\App\Http\Controllers\CustomersControllerForApi::class, 'index']);
