@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
     Route::apiResource('customers', \App\Http\Controllers\CustomerController::class);
 
+    Route::post('upload', [\App\Http\Controllers\FileUpload::class, 'upload']);
+
 });
 
 
